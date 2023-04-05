@@ -19,12 +19,24 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailDesc: UILabel!
     
+    @IBOutlet weak var detailArtist: UILabel!
+    
+    @IBOutlet weak var detailMedium: UILabel!
+    
+    @IBOutlet weak var detailYear: UILabel!
+    
+    @IBOutlet weak var detailMuseum: UILabel!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
                         super.viewDidLoad()
                         detailName?.text = item?.name
                         detailDesc?.text = item?.desc
+                        detailArtist?.text = item?.artist
+                        detailMedium?.text = item?.medium
+                        detailYear?.text = item?.year
+                        detailMuseum?.text = item?.museum
                         detailImage?.image = UIImage(named: item!.imageName)
           
                         // code for map

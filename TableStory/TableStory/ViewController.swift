@@ -10,11 +10,11 @@ import UIKit
 import MapKit
 
 let data = [
-    Item(name: "Starry Night", artist: "Vincent Van Gogh", desc: "Van Gogh's famous 'Starry Night' features an abstraction of the night's landscape. Layers of blue and yellow oil paint swirl into one another creating a mystical image of the night sky. Of Van Gogh's many works, this is considered his most infamous piece.", lat: 40.7794, long: 73.9632, imageName: "rest1"),
-    Item(name: "Biscuits + Groovy", artist: "Hyde Park", desc: "Groovy little neighborhood truck serving up biscuits in a variety of styles.", lat: 30.313960, long: -97.719760, imageName: "rest2"),
-    Item(name: "Veracruz All Natural", artist: "Mueller", desc: "This is one of many locations for the beloved taco mavens of Austin.", lat: 30.2962244, long: -97.7079799, imageName: "rest3"),
-    Item(name: "Vaquero Taquero", artist: "UT", desc: "Delicious tacos with a convenient walk up window. ", lat: 30.295190, long: -97.736540, imageName: "rest4"),
-    Item(name: "Uncle Nicky's", artist: "Hyde Park", desc: "Serving up Italian specialties and drinks.", lat: 30.304890, long: -97.726220, imageName: "rest5")
+    Item(name: "Starry Night", artist: "Vincent Van Gogh", desc: "Van Gogh's famous 'Starry Night' features an abstraction of the night's landscape. Layers of blue and yellow oil paint swirl into one another creating a mystical image of the night sky. Of Van Gogh's many works, this is considered his most infamous piece.", lat: 40.7614, long: -73.9776, imageName: "starry", medium: "Oil paint on canvas", year: "1889", museum: "MoMa (Museum of Modern Art)"),
+    Item(name: "Hang Onto the Wind and Trust", artist: "Don Reitz", desc: "Reitz focuses on pushing narrative as each of his pieces tells a story. He utilizes the surface of each piece exentuating tears and groves to create highly textured and decorated works. Even the firing process altered the clay's form through wood firing.", lat: 34.0612, long: -117.7508, imageName: "hang", medium: "Vitreous Engobes, Clay", year: "1984", museum: "AMOCA (The American Museum of Ceramic Art)"),
+    Item(name: "Horse's Skull with Pink Rose", artist: "Georgia O'Keefe", desc: "Georgia O'Keefe is well-known for her use of skeletal or floral subjects in her paintings. 'Horse Skull with Rose'  is known as one of her most mystiying pieces.While, critics saw a morbid fascination for death, O'Keefe always insisted on her work acting as a celebration of life.", lat: 34.0639, long: -118.3592, imageName: "okeefe", medium: "Oil paint on canvas", year: "1931", museum: "LACMA (Los Angeles County Museum of Art)"),
+    Item(name: "Back of the Neck", artist: "Jean-Michel Basquiat", desc: "Back of the Neck' is one of Basquiat's few screenprints. It features Basquiat's trademarked three-point crown and his intrigue into anatomy. It also alludes to his love of Leonardo de Vinci as if creating a study of anatomical arms in his own right.", lat: 40.7830, long: -73.9590, imageName: "neck", medium: "Screen print with hand-coloring on paper", year: "1983", museum: "The Guggenheim Museum"),
+    Item(name: "Medea's Hypostases lll", artist: "Geta Brătescu", desc: "Geta Brătescu was a Romanian artist that utilized various mediums throughout her career and was awarded an honorary doctorate for her contributions to Romanian conteporary art. Many of her works criticized the censorship of her society and eventually focused on topics of self-identity and dematerialisation as well. It was in the 1980's that she began her textile work where she would 'draw with a sewing machine.'", lat: 40.7614, long: -73.9776, imageName: "geta", medium: "Drawing with sewing machine on textile", year: "1980", museum: "MoMa (Museum of Modern Art)")
    
 ]
 
@@ -25,6 +25,9 @@ struct Item {
     var lat: Double
     var long: Double
     var imageName: String
+    var medium: String
+    var year: String
+    var museum: String
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -75,8 +78,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         theTable.dataSource = self
         
         //set center, zoom level and region of the map
-                let coordinate = CLLocationCoordinate2D(latitude: 30.295190, longitude: -97.7444)
-                let region = MKCoordinateRegion(center: coordinate,span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        let coordinate = CLLocationCoordinate2D(latitude: 40.0, longitude: -97.7444)
+        let region = MKCoordinateRegion(center: coordinate,span: MKCoordinateSpan(latitudeDelta: 30.0, longitudeDelta: 30.0))
                 mapView.setRegion(region, animated: true)
                 
              // loop through the items in the dataset and place them on the map
